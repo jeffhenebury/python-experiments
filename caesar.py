@@ -1,7 +1,10 @@
-#shift letters by the number provided, start with constants
-chosenLet = input('what letter to start with?')
-advancer = int(input('How much to shift by?'))
+#this is for shifting a single letter in part 1
+#chosenLet = input('what letter to start with?')
+# advancer = int(input('How much to shift by?'))
 
+#for a whole word
+chosenLet = input('what WORD to start with?')
+advancer = int(input('How much to shift by?'))
 
 def numberShrinker(x):
     x = int(x)
@@ -130,23 +133,39 @@ def numberToLetter(num):
         case _:
             return 0  # 0 is the default case if x is not found
 
-def multiCypher (word):
-    decrypted:''
+def multiCypher (word, advancer):
+    decrypted = ''
+    word = word.lower()
+    advancer = numberShrinker(advancer)
     for letter in word:
-        lowerChosen = chosenLet.letter()
+        letter.lower()
+        #print('TEST, The number after modulo stuff is:  ' + str(lowerChosen))
+        firstNum = letterToNum(letter)
+        print('TEST, first number : ' + str(firstNum))
+        advancedNum = advanceNum(firstNum, advancer)
+        print('TEST, advanced number is now: ' + str(advancedNum))
+        encryptedLetter = numberToLetter(advancedNum)
+        print('TEST, The letter ' + str(letter) + ' advanced by ' + str(advancer) + " becomes: ")
+        print(str(encryptedLetter))
+        decrypted += encryptedLetter
+    print('TEST, FINAL DECRYPTION:' + str(decrypted))
+    return decrypted
 
 
-#print(lowerChosen)
 
+###This is for a single letter###
  #make it lower case
-lowerChosen = chosenLet.lower()
-#strip down if above 26
-advancer = numberShrinker(advancer)
-print('TEST, The number after modulo stuff is:  '+ str(lowerChosen))
-firstNum = letterToNum(lowerChosen)
-print('TEST, first number : ' + str(firstNum))
-advancedNum = advanceNum(firstNum, advancer)
-print('TEST, advanced number is now: ' + str(advancedNum))
-encryptedLetter = numberToLetter(advancedNum)
-print('The letter ' + str(lowerChosen) + ' advanced by ' + str(advancer) + " becomes: " )
-print(str(encryptedLetter))
+# lowerChosen = chosenLet.lower()
+# #strip down if above 26
+# advancer = numberShrinker(advancer)
+# print('TEST, The number after modulo stuff is:  '+ str(lowerChosen))
+# firstNum = letterToNum(lowerChosen)
+# print('TEST, first number : ' + str(firstNum))
+# advancedNum = advanceNum(firstNum, advancer)
+# print('TEST, advanced number is now: ' + str(advancedNum))
+# encryptedLetter = numberToLetter(advancedNum)
+# print('The letter ' + str(lowerChosen) + ' advanced by ' + str(advancer) + " becomes: " )
+# print(str(encryptedLetter))
+
+final = multiCypher(chosenLet, advancer)
+print(final)
