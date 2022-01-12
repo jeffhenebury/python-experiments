@@ -130,6 +130,10 @@ def numberToLetter(num):
         case _:
             return 0  # 0 is the default case if x is not found
 
+def multiCypher (word):
+    decrypted:''
+    for letter in word:
+        lowerChosen = chosenLet.letter()
 
 
 #print(lowerChosen)
