@@ -133,6 +133,7 @@ def numberToLetter(num):
         case _:
             return 0  # 0 is the default case if x is not found
 
+#this is to convert a whole word
 def multiCypher (word, advancer):
     decrypted = ''
     word = word.lower()
@@ -150,8 +151,6 @@ def multiCypher (word, advancer):
         decrypted += encryptedLetter
     print('TEST, FINAL DECRYPTION:' + str(decrypted))
     return decrypted
-
-
 
 ###This is for a single letter###
  #make it lower case
