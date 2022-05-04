@@ -8,7 +8,7 @@
 #   a) at least 8 characters long,
 #   b) consists of more than just letters (has to also have numbers and/or symbols
 #   c) Does not contain obvious passwords like 'password1'
-#   d) Is a unique password that has not been re-used from a previous saved password. (This one was the hardest to add!)
+#   d) Is a unique password that has not been re-used from a previous saved password.
 # 2. Have added a 'password deleter' so that previously added passwords can be removed. The
 #   passwordeleter function then calls savePasswordFile in order to save the changes.
 #
@@ -75,7 +75,7 @@ def passwordEncrypt(unencryptedMessage, key):
     # We will start with an empty string as our encryptedMessage
     encryptedMessage = ''
 
-    # For each symbol in the unencryptedMessage we will add an encrypted symbol into the encryptedMessage
+    # For each symbol in the unencryptedMessage, add an encrypted symbol into the encryptedMessage
     for symbol in unencryptedMessage:
         if symbol.isalpha():
             num = ord(symbol)
@@ -93,6 +93,7 @@ def passwordEncrypt(unencryptedMessage, key):
                     num += 26
 
             encryptedMessage += chr(num)
+        #if it's not a number, just add it as is for now
         else:
             encryptedMessage += symbol
 
@@ -101,10 +102,10 @@ def passwordEncrypt(unencryptedMessage, key):
 
 # Caesar Cypher decrypter
 def passwordDecrypt(encryptedMessage, key):
-    # We will start with an empty string as our decryptedMessage
+    #start with an empty string as our decryptedMessage
     decryptedMessage = ''
 
-    # For each symbol in the unencryptedMessage we will add an encrypted symbol into the encryptedMessage
+    # For each symbol in the unencryptedMessage, add an encrypted symbol into the encryptedMessage
     for symbol in encryptedMessage:
         if symbol.isalpha():
             num = ord(symbol)
@@ -162,7 +163,6 @@ while True:
             print(keyvalue[0])
         passwordToLookup = input()
 
-        ####### YOUR CODE HERE ######
         for i in range(len(passwords)):
             #     print("TEST, what does this print out? " + str(i) + " " + passwords[i][0])
             if passwords[i][0].lower() == passwordToLookup.lower():
